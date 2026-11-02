@@ -68,6 +68,23 @@ a { color: var(--accent); text-decoration: none; }
 .socials a { color: var(--muted); font-weight: 500; border-bottom: 1px solid transparent; }
 .socials a:hover { color: var(--accent); border-color: var(--accent); }
 
+.hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; }
+.status-card {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+  font-size: 14px;
+}
+.status-title { color: #94a3b8; font-size: 12px; margin-bottom: 10px; font-family: monospace; }
+.status-card pre { font-family: "Consolas", monospace; font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+.kw { color: #60a5fa; }
+.str { color: #fbbf24; }
+.status-card table { width: 100%; border-collapse: collapse; }
+.status-card td { padding: 6px 0; border-top: 1px solid #1e293b; }
+.status-card td:first-child { color: #94a3b8; width: 45%; }
+
 /* sections */
 .section { padding: 80px 0; }
 .section.alt { background: var(--bg-alt); }
@@ -148,6 +165,7 @@ a { color: var(--accent); text-decoration: none; }
   .nav-links.open { display: flex; }
   .nav-links li a { display: block; padding: 14px 5%; }
   .hero { padding: 70px 0 60px; }
+  .hero-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 36px; }
   .hero h2 { font-size: 17px; }
   .section { padding: 56px 0; }
