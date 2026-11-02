@@ -100,3 +100,58 @@ export function renderProjects(data) {
     others: data.others.map(otherCard).join('\n'),
   }
 }
+
+// ---------- signature ----------
+// The signature json comes from tools/signature (font outline + traced pen strokes).
+// The outline is the visible ink; the pen strokes are drawn into a mask with
+// stroke-dashoffset, so the ink appears in writing order.
+
+const WRITE_MS = 1400 // time spent writing the letters
+const LIFT_MS = 55 // pen lift between strokes
+
+function strokeTimings(strokes) {
+  const w = strokes.map((s) => Math.pow(s.len, 0.8))
+  const sum = w.reduce((a, b) => a + b, 0)
+  let t = 80
+  return strokes.map((s, i) => {
+    const small = s.len < 30 // the dot of the j: small pause, quick tap
+    if (small) t += 90
+    const dur = small ? 110 : Math.max(90, Math.round((WRITE_MS * w[i]) / sum))
+    const out = { delay: t, dur }
+    t += dur + LIFT_MS
+    return out
+  })
+}
+
+export function signatureDefs(sig) {
+  return `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="sig-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e5bd"/><stop offset=".5" stop-color="#e2c27f"/><stop offset="1" stop-color="#bf9550"/></linearGradient>
+<path id="sig-ink" d="${sig.outline}"/>
+<path id="sig-swoosh" d="${sig.flourish.shape}"/>
+</defs></svg>`
+}
+
+export function signatureIntro(sig) {
+  const [x, y, w, h] = sig.viewBox
+  const times = strokeTimings(sig.strokes)
+  const last = times[times.length - 1]
+  const fStart = last.delay + last.dur - 40
+  const fDur = 360
+  const total = fStart + fDur
+  const paths = sig.strokes
+    .map((s, i) => `<path d="${s.d}" pathLength="1" style="--t:${times[i].delay}ms;--d:${times[i].dur}ms"/>`)
+    .join('')
+  return `<svg class="sig sig-anim" viewBox="${x} ${y} ${w} ${h}" data-total="${total}" role="img" aria-label="Tejdeep">
+<defs>
+<mask id="sig-write" maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"><g class="pen" fill="none" stroke="#fff" stroke-width="${sig.pen}" stroke-linecap="round" stroke-linejoin="round">${paths}</g></mask>
+<mask id="sig-write-2" maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"><g class="pen" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"><path d="${sig.flourish.center}" pathLength="1" style="--t:${fStart}ms;--d:${fDur}ms"/></g></mask>
+</defs>
+<use href="#sig-ink" fill="url(#sig-gold)" mask="url(#sig-write)"/>
+<use href="#sig-swoosh" fill="url(#sig-gold)" mask="url(#sig-write-2)"/>
+</svg>`
+}
+
+export function signatureLogo(sig) {
+  const [x, y, w, h] = sig.viewBox
+  return `<svg class="sig" viewBox="${x} ${y} ${w} ${h}" aria-hidden="true" focusable="false"><use href="#sig-ink" fill="currentColor"/><use href="#sig-swoosh" fill="currentColor"/></svg>`
+}

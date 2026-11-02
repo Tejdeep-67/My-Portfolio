@@ -1,4 +1,5 @@
 import './styles.css'
+import { runIntro } from './intro.js'
 import { initNav, initReveal, initCounters, initCopy } from './ui.js'
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -8,4 +9,6 @@ initNav()
 initReveal()
 initCounters(reduced)
 initCopy()
-requestAnimationFrame(() => document.documentElement.classList.add('ready'))
+runIntro(() => {
+  requestAnimationFrame(() => document.documentElement.classList.add('ready'))
+})
