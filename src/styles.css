@@ -341,8 +341,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   }
   .nav-links.open { opacity: 1; visibility: visible; }
   .nav-links a { font-family: var(--serif); font-size: 2.2rem; color: var(--ink); }
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; padding-block: 120px 100px; text-align: left; }
-  .portrait { width: min(300px, 78%); order: -1; justify-self: start; margin-left: 14px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-block: 104px 96px; text-align: left; }
+  .portrait { width: min(230px, 60%); order: -1; justify-self: start; margin-left: 14px; }
   .chip-a { left: auto; right: -40px; bottom: 34px; }
   .chip-b { right: -40px; top: 26px; }
   .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -356,6 +356,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero h1 { font-size: clamp(2.9rem, 14vw, 3.6rem); }
   .cta .btn { flex: 1 1 auto; justify-content: center; }
   .chip { font-size: 0.78rem; padding: 8px 12px; }
+  .eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; }
+  .hero .eyebrow::before { display: none; }
   .chip b { font-size: 1.15rem; }
   .logo { height: 42px; }
   .section-head { margin-bottom: 36px; }
