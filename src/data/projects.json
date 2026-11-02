@@ -20,7 +20,7 @@
       ],
       "live": "https://safe-roads-ai.netlify.app",
       "code": "https://github.com/Tejdeep-67/safe-roads",
-      "image": null,
+      "image": "/img/projects/safe-roads.webp",
       "note": "Started as a team project"
     },
     {
@@ -43,7 +43,7 @@
       ],
       "live": "https://airpulse-india.netlify.app",
       "code": "https://github.com/Tejdeep-67/airpulse-india",
-      "image": null
+      "image": "/img/projects/airpulse.webp"
     },
     {
       "slug": "niftylens",
