@@ -112,6 +112,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(120% 80% at 50% 40%, transparent 55%, rgba(10, 15, 28, 0.85) 100%), linear-gradient(180deg, transparent 75%, var(--bg) 100%);
 }
+.hero-bg::before { /* static fallback: a field of dots in perspective */
+  content: ''; position: absolute; left: -30%; right: -30%; bottom: -12%; height: 62%; opacity: 0; transition: opacity 1s;
+  background: radial-gradient(circle, rgba(140, 165, 235, 0.55) 1.1px, transparent 1.6px) 0 0 / 26px 26px;
+  transform: perspective(520px) rotateX(64deg); transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+}
+.static-bg .hero-bg::before { opacity: 1; }
 .hero-bg canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0; transition: opacity 1.6s ease; }
 .hero-bg canvas.on { opacity: 1; }
 .hero-inner { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 64px; align-items: center; padding-block: 130px 90px; }
