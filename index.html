@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tejdeep Kellampalli | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Tejdeep Kellampalli, B.Tech CSE (Data Science) student. SQL, Python, data analysis and machine learning projects.">
+  <meta property="og:title" content="Tejdeep Kellampalli | Portfolio">
+  <meta property="og:description" content="Data analysis and machine learning projects: SQL, Python, dashboards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">Tejdeep<span>.</span></a>
+      <button class="menu-btn" aria-label="Open menu" id="menuBtn">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container">
+      <p class="hello">Hi, I'm</p>
+      <h1>Tejdeep Kellampalli</h1>
+      <h2>Aspiring Data Analyst &middot; B.Tech CSE (Data Science), 2027</h2>
+      <p class="intro">
+        I like turning messy data into clear answers. I work with SQL, Python and Power BI,
+        and I'm looking for internships and entry-level roles in data analysis, QA and IT.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">See my projects</a>
+        <a href="assets/Tejdeep_Kellampalli_Resume.pdf" class="btn" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/Tejdeep-67" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://in.linkedin.com/in/tejdeep-kellampalli-6510a8355" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:kellampallitejdeep@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">About me</h2>
+        <p>
+          I'm a third-year B.Tech student in Computer Science and Engineering (Data Science) at
+          R.V.R. &amp; J.C. College of Engineering, Guntur, Andhra Pradesh. Most of my projects start with a question,
+          like "which customers are about to stop buying?" or "does rainfall really decide crop yield in AP?",
+          and end with a chart or a model that answers it.
+        </p>
+        <p>
+          Outside data work I've built full stack apps with React, Flask and MongoDB, including a pothole detection
+          system with YOLOv8 as a team project. I'm open to roles in Hyderabad, Bangalore, Chennai or remote.
+        </p>
+        <div class="facts">
+          <div><strong>7.94</strong><span>CGPA</span></div>
+          <div><strong>5</strong><span>Projects</span></div>
+          <div><strong>4</strong><span>Certifications</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>Languages</h3>
+            <div class="chips"><span>Python</span><span>SQL</span><span>C</span><span>JavaScript (basics)</span></div>
+          </div>
+          <div class="skill-box">
+            <h3>Data &amp; ML</h3>
+            <div class="chips"><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Machine Learning</span><span>Data Analysis</span></div>
+          </div>
+          <div class="skill-box">
+            <h3>BI &amp; Tools</h3>
+            <div class="chips"><span>Power BI</span><span>Excel</span><span>Jupyter Notebook</span><span>Git</span><span>GitHub</span></div>
+          </div>
+          <div class="skill-box">
+            <h3>Web &amp; Databases</h3>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>React.js (basics)</span><span>Flask</span><span>MongoDB</span><span>SQLite</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+        <article class="project">
+          <p class="project-tag">SQL · Python · Dashboard</p>
+          <h3>Retail Sales Analytics</h3>
+          <p>Cleaned 1M+ transactions of a UK online retailer into a SQLite database and answered business questions in SQL (window functions, RFM segmentation, cohort retention). Built a Power BI style dashboard with KPI cards and slicers.</p>
+          <ul class="highlights">
+            <li>Top 20% of customers bring 77% of revenue</li>
+            <li>Found 829 "at risk" customers worth £1.5M</li>
+          </ul>
+          <div class="stack"><span>SQL</span><span>SQLite</span><span>Python</span><span>pandas</span><span>Plotly</span></div>
+          <div class="links">
+            <a href="https://tejdeep-67.github.io/retail-sales-analytics/" target="_blank" rel="noopener" class="primary">Live demo</a>
+            <a href="https://github.com/Tejdeep-67/retail-sales-analytics" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project-tag">EDA · Python</p>
+          <h3>AP Rainfall & Crop Analysis</h3>
+          <p>Exploratory analysis of 117 years of IMD rainfall and district crop production data for Andhra Pradesh. Checked trends, drought years and whether rainfall really changes crop yield.</p>
+          <ul class="highlights">
+            <li>Rain-fed groundnut yield tracks the monsoon (r = 0.77)</li>
+            <li>Canal-irrigated rice shows no link (r = -0.27)</li>
+          </ul>
+          <div class="stack"><span>Python</span><span>pandas</span><span>matplotlib</span><span>seaborn</span><span>SciPy</span></div>
+          <div class="links">
+            <a href="https://tejdeep-67.github.io/ap-rainfall-crop-analysis/" target="_blank" rel="noopener" class="primary">Live demo</a>
+            <a href="https://github.com/Tejdeep-67/ap-rainfall-crop-analysis" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project-tag">Machine Learning</p>
+          <h3>Customer Churn Prediction</h3>
+          <p>End-to-end churn model on 7,043 telecom customers: EDA, comparison of 4 models, a Flask API with tests, and a web demo where the model runs in the browser.</p>
+          <ul class="highlights">
+            <li>ROC-AUC 0.84, catches 78% of churners</li>
+            <li>Top 20% risk list reaches half of all churners</li>
+          </ul>
+          <div class="stack"><span>scikit-learn</span><span>Flask</span><span>pytest</span><span>JavaScript</span></div>
+          <div class="links">
+            <a href="https://tejdeep-67.github.io/customer-churn-prediction/" target="_blank" rel="noopener" class="primary">Live demo</a>
+            <a href="https://github.com/Tejdeep-67/customer-churn-prediction" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project-tag">Computer Vision · Full Stack</p>
+          <h3>Safe Roads</h3>
+          <p>Team project: pothole detection from road photos with a YOLOv8 segmentation model, and navigation that only warns about potholes within 30 m of your route.</p>
+          <ul class="highlights">
+            <li>Model validation mAP@50 0.68 (boxes)</li>
+            <li>GPS from photo EXIF + OSRM routing</li>
+          </ul>
+          <div class="stack"><span>YOLOv8</span><span>Flask</span><span>MongoDB</span><span>React</span><span>Leaflet</span></div>
+          <div class="links">
+            <a href="https://github.com/Tejdeep-67/project-bolt-sb1-gt5grsbh" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <p class="project-tag">Data Tool · Web</p>
+          <h3>Stalytex</h3>
+          <p>Browser-based analytics workspace: upload a CSV or Excel file, clean and edit it, view column statistics, build charts and run SQL on it. No backend needed.</p>
+          <ul class="highlights">
+            <li>In-browser SQL with sql.js</li>
+            <li>Charts exported as PNG, data as CSV/XLSX</li>
+          </ul>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Recharts</span><span>SheetJS</span><span>sql.js</span></div>
+          <div class="links">
+            <a href="https://github.com/Tejdeep-67/Stalytex" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <div class="two-col">
+          <div class="timeline">
+            <div class="item">
+              <span class="when">2023 &ndash; 2027</span>
+              <h3>B.Tech, Computer Science and Engineering (Data Science)</h3>
+              <p>R.V.R. &amp; J.C. College of Engineering, Guntur &middot; CGPA 7.94/10</p>
+            </div>
+            <div class="item">
+              <span class="when">2021 &ndash; 2022</span>
+              <h3>Intermediate (MPC)</h3>
+              <p>Sri Chaitanya Junior College &middot; 79.5%</p>
+            </div>
+            <div class="item">
+              <span class="when">2020 &ndash; 2021</span>
+              <h3>SSC</h3>
+              <p>Sri Chaitanya School &middot; 100%</p>
+            </div>
+          </div>
+          <ul class="certs">
+            <li><strong>Certified Data Science Professional</strong><span>Oracle</span></li>
+            <li><strong>Certified Gen AI Professional</strong><span>Oracle</span></li>
+            <li><strong>AICTE Google AI-ML Virtual Internship</strong><span>EduSkills</span></li>
+            <li><strong>AICTE Microsoft Foundations of AI Virtual Internship</strong><span>Edunet Foundation</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container narrow center">
+        <h2 class="section-title">Get in touch</h2>
+        <p>I'm looking for internships and full-time roles starting 2027. The fastest way to reach me is email.</p>
+        <a href="mailto:kellampallitejdeep@gmail.com" class="btn btn-primary">kellampallitejdeep@gmail.com</a>
+        <div class="socials center">
+          <a href="https://github.com/Tejdeep-67" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://in.linkedin.com/in/tejdeep-kellampalli-6510a8355" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Tejdeep Kellampalli</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
