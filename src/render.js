@@ -78,19 +78,21 @@ export function featuredCard(p, i) {
 
 export function otherCard(p) {
   return `
-<article class="mini reveal tilt" data-slug="${esc(p.slug)}">
-  <div class="tilt-inner">
-    <p class="kicker">${esc(p.kicker)}</p>
-    <h3>${esc(p.name)}</h3>
-    <p class="summary">${esc(p.summary)}</p>
-    ${p.highlights?.length ? `<p class="hl">${esc(p.highlights[0])}</p>` : ''}
-    <ul class="stack">${p.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
-    <div class="links">
-      <a href="${esc(p.live)}" target="_blank" rel="noopener">Live ${arrow}</a>
-      <a href="${esc(p.code)}" target="_blank" rel="noopener">${gh} Code</a>
+<article class="mini reveal" data-slug="${esc(p.slug)}">
+  <div class="mini-card tilt">
+    <div class="tilt-inner">
+      <p class="kicker">${esc(p.kicker)}</p>
+      <h3>${esc(p.name)}</h3>
+      <p class="summary">${esc(p.summary)}</p>
+      ${p.highlights?.length ? `<p class="hl">${esc(p.highlights[0])}</p>` : ''}
+      <ul class="stack">${p.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+      <div class="links">
+        <a href="${esc(p.live)}" target="_blank" rel="noopener">Live ${arrow}</a>
+        <a href="${esc(p.code)}" target="_blank" rel="noopener">${gh} Code</a>
+      </div>
     </div>
+    <span class="glare" aria-hidden="true"></span>
   </div>
-  <span class="glare" aria-hidden="true"></span>
 </article>`
 }
 

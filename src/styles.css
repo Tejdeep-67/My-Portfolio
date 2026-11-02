@@ -208,12 +208,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .links { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .minis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.mini {
-  position: relative; border-radius: var(--radius); background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+.mini { display: flex; }
+.mini-card {
+  width: 100%; position: relative; border-radius: var(--radius); background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--line); transform-style: preserve-3d; overflow: hidden;
   transition: border-color 0.4s;
 }
-.mini:hover { border-color: rgba(216, 180, 106, 0.4); }
+.mini-card:hover { border-color: rgba(216, 180, 106, 0.4); }
 .mini .tilt-inner { padding: 26px 24px 24px; height: 100%; display: flex; flex-direction: column; }
 .mini h3 { font-family: var(--serif); font-size: 1.65rem; line-height: 1.08; margin-bottom: 12px; }
 .mini .kicker { font-size: 0.72rem; margin-bottom: 10px; }
@@ -227,6 +228,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* 3d tilt (js sets --rx/--ry/--gx/--gy) */
 .tilt { --rx: 0deg; --ry: 0deg; transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform 0.6s var(--ease); will-change: transform; }
 .tilt.moving { transition: transform 0.12s linear; }
+.mini .tilt-inner > * { transform: translateZ(0); transition: transform 0.6s var(--ease); }
+.mini-card:hover .tilt-inner h3 { transform: translateZ(28px); }
+.mini-card:hover .tilt-inner .links { transform: translateZ(18px); }
+.mini .tilt-inner { transform-style: preserve-3d; }
 .glare { position: absolute; inset: 0; pointer-events: none; border-radius: inherit; opacity: 0; transition: opacity 0.4s;
   background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 236, 196, 0.13), transparent 45%); }
 .tilt.moving .glare, .tilt:hover .glare { opacity: 1; }
@@ -282,6 +287,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .js .reveal.in { opacity: 1; transform: none; }
 .js .feature.reveal .feature-visual { clip-path: inset(8% 8% 8% 8% round 22px); transition: clip-path 1.2s var(--ease) 0.1s, transform 0.6s var(--ease); }
 .js .feature.reveal.in .feature-visual { clip-path: inset(0 0 0 0 round 22px); }
+.js .feature.reveal .feature-visual.moving { transition: clip-path 1.2s var(--ease) 0.1s, transform 0.12s linear; }
 
 /* ---------- signature intro ---------- */
 .intro { display: none; }

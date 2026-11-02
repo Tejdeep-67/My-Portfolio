@@ -1,5 +1,6 @@
 import './styles.css'
 import { runIntro } from './intro.js'
+import { initMagnetic, initTilt } from './effects.js'
 import { initNav, initReveal, initCounters, initCopy } from './ui.js'
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -9,11 +10,18 @@ initNav()
 initReveal()
 initCounters(reduced)
 initCopy()
+if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  initMagnetic()
+  initTilt()
+}
+
 // 3d background: loaded lazily, skipped for reduced motion or when webgl is missing
 function webglOk() {
   try {
     const c = document.createElement('canvas')
-    return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')))
+    const gl = window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))
+    gl?.getExtension('WEBGL_lose_context')?.loseContext()
+    return !!gl
   } catch {
     return false
   }
