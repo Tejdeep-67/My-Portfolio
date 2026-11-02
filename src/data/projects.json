@@ -1,0 +1,141 @@
+{
+  "featured": [
+    {
+      "slug": "safe-roads",
+      "name": "Safe Roads",
+      "kicker": "Computer Vision · Real-time · Maps",
+      "summary": "Real-time pothole detection that runs right in the browser. A YOLO model exported to ONNX checks the webcam, a road video or a photo, then puts every hazard on a shared map and warns you about the ones on your route.",
+      "highlights": [
+        "YOLO model running in the browser with ONNX Runtime Web, no server needed",
+        "Live webcam, uploaded video and photo modes with boxes and severity",
+        "Hazard map plus route alerts for potholes close to your path"
+      ],
+      "stack": [
+        "YOLOv8",
+        "ONNX Runtime Web",
+        "React",
+        "TypeScript",
+        "Leaflet",
+        "OSRM"
+      ],
+      "live": "https://safe-roads-ai.netlify.app",
+      "code": "https://github.com/Tejdeep-67/safe-roads",
+      "image": null,
+      "note": "Started as a team project"
+    },
+    {
+      "slug": "airpulse",
+      "name": "AirPulse",
+      "kicker": "Real-time data · Forecasting",
+      "summary": "A live air quality and weather monitor for Indian cities. It works out the official CPCB AQI from pollutant readings, forecasts PM2.5 with a model I trained, and alerts you when your city crosses a limit.",
+      "highlights": [
+        "CPCB National AQI calculated in code with the dominant pollutant",
+        "PM2.5 forecast model compared with the CAMS forecast",
+        "City map, rankings, comparisons and threshold alerts"
+      ],
+      "stack": [
+        "Python",
+        "scikit-learn",
+        "JavaScript",
+        "Open-Meteo API",
+        "Charts",
+        "Leaflet"
+      ],
+      "live": "https://airpulse-india.netlify.app",
+      "code": "https://github.com/Tejdeep-67/airpulse-india",
+      "image": null
+    },
+    {
+      "slug": "niftylens",
+      "name": "NiftyLens",
+      "kicker": "Markets · NLP · Alerts",
+      "summary": "A real-time NSE dashboard for NIFTY 50 stocks. Prices, charts and technicals sit next to news headlines scored by my own sentiment model, with alerts for price moves and turning sentiment.",
+      "highlights": [
+        "Near real-time prices through a small cached serverless proxy",
+        "Headline sentiment from an NLP model trained on financial news",
+        "Watchlist, technical indicators and price / sentiment alerts"
+      ],
+      "stack": [
+        "Python",
+        "NLP",
+        "scikit-learn",
+        "JavaScript",
+        "Netlify Functions",
+        "Charts"
+      ],
+      "live": "https://niftylens.netlify.app",
+      "code": "https://github.com/Tejdeep-67/niftylens",
+      "image": null
+    }
+  ],
+  "others": [
+    {
+      "slug": "churn",
+      "name": "Customer Churn Prediction",
+      "kicker": "Machine Learning",
+      "summary": "Churn model on 7,043 telecom customers with a what-if risk simulator in the browser and a Flask API.",
+      "highlights": [
+        "ROC-AUC 0.84, catches 78% of churners"
+      ],
+      "stack": [
+        "scikit-learn",
+        "Flask",
+        "pytest",
+        "JavaScript"
+      ],
+      "live": "https://tejdeep-churn-predictor.netlify.app",
+      "code": "https://github.com/Tejdeep-67/customer-churn-prediction"
+    },
+    {
+      "slug": "retail",
+      "name": "Retail Sales Analytics",
+      "kicker": "SQL · Dashboard",
+      "summary": "1.07M retail transactions cleaned into SQLite, 12 SQL analyses (RFM, cohorts) and a Power BI style dashboard.",
+      "highlights": [
+        "Top 20% of customers bring 77% of revenue"
+      ],
+      "stack": [
+        "SQL",
+        "SQLite",
+        "Python",
+        "pandas"
+      ],
+      "live": "https://tejdeep-retail-analytics.netlify.app",
+      "code": "https://github.com/Tejdeep-67/retail-sales-analytics"
+    },
+    {
+      "slug": "rainfall",
+      "name": "AP Rainfall & Crop Analysis",
+      "kicker": "EDA · Data story",
+      "summary": "117 years of IMD rainfall and district crop data for Andhra Pradesh, told as a scrolling data story.",
+      "highlights": [
+        "Rain-fed groundnut yield tracks the monsoon (r = 0.77)"
+      ],
+      "stack": [
+        "Python",
+        "pandas",
+        "Seaborn",
+        "SciPy"
+      ],
+      "live": "https://tejdeep-ap-rainfall.netlify.app",
+      "code": "https://github.com/Tejdeep-67/ap-rainfall-crop-analysis"
+    },
+    {
+      "slug": "stalytex",
+      "name": "Stalytex",
+      "kicker": "Data tool · Web",
+      "summary": "Analytics workspace in the browser: upload CSV or Excel, clean it, see column stats, build charts and run SQL.",
+      "highlights": [
+        "In-browser SQL with sql.js, no backend"
+      ],
+      "stack": [
+        "React",
+        "TypeScript",
+        "Recharts",
+        "SheetJS"
+      ],
+      "live": "https://stalytex.netlify.app",
+      "code": "https://github.com/Tejdeep-67/Stalytex"
+    }
+  ]
+}

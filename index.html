@@ -1,240 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tejdeep Kellampalli | Data Analyst Portfolio</title>
-  <meta name="description" content="Portfolio of Tejdeep Kellampalli, B.Tech CSE (Data Science) student. SQL, Python, data analysis and machine learning projects.">
-  <meta property="og:title" content="Tejdeep Kellampalli | Portfolio">
-  <meta property="og:description" content="Data analysis and machine learning projects: SQL, Python, dashboards.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tejdeep Kellampalli · Data Analyst Portfolio</title>
+  <meta name="description" content="Tejdeep Kellampalli, B.Tech CSE (Data Science) 2027. Real-time data projects: pothole detection in the browser, live air quality forecasting and NSE stock sentiment. Open to data analyst, QA and IT roles." />
+  <meta name="theme-color" content="#0a0f1c" />
+  <link rel="canonical" href="https://tejdeep-portfolio.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tejdeep Kellampalli · Data Analyst Portfolio" />
+  <meta property="og:description" content="Real-time data projects, dashboards and ML. B.Tech CSE (Data Science) 2027, open to analyst, QA and IT roles." />
+  <meta property="og:url" content="https://tejdeep-portfolio.netlify.app/" />
+  <meta property="og:image" content="https://tejdeep-portfolio.netlify.app/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="/img/tejdeep-400.webp" imagesrcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" imagesizes="(max-width: 760px) 70vw, 360px" type="image/webp" />
+  <script>
+    // decide before first paint whether the intro plays (once per session)
+    try {
+      var seen = sessionStorage.getItem('intro-seen')
+      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!seen && !calm) document.documentElement.classList.add('intro-on')
+    } catch (e) {}
+    document.documentElement.classList.add('js')
+  </script>
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="logo">Tejdeep<span>.</span></a>
-      <button class="menu-btn" aria-label="Open menu" id="menuBtn">&#9776;</button>
-      <ul class="nav-links" id="navLinks">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-sig" id="intro-sig"></div>
+    <p class="intro-sub">Data · Analytics · Machine Learning</p>
+    <button class="intro-skip" type="button" id="intro-skip">Skip</button>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="Tejdeep Kellampalli, back to top">
+      <span class="logo-sig" id="logo-sig"></span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </div>
-  </nav>
-
-  <header class="hero" id="top">
-    <div class="container hero-grid">
-      <div>
-      <p class="hello">Hi, I'm</p>
-      <h1>Tejdeep Kellampalli</h1>
-      <h2>Aspiring Data Analyst &middot; B.Tech CSE (Data Science), 2027</h2>
-      <p class="intro">
-        I like turning messy data into clear answers. I work with SQL, Python and Power BI,
-        and I'm looking for internships and entry-level roles in data analysis, QA and IT.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">See my projects</a>
-        <a href="assets/Tejdeep_Kellampalli_Resume.pdf" class="btn" target="_blank" rel="noopener">Resume (PDF)</a>
-      </div>
-      <div class="socials">
-        <a href="https://github.com/Tejdeep-67" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://in.linkedin.com/in/tejdeep-kellampalli-6510a8355" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:kellampallitejdeep@gmail.com">Email</a>
-      </div>
-      </div>
-      <div class="status-card">
-        <p class="status-title">quick_facts.sql</p>
-<pre><span class="kw">SELECT</span> *
-<span class="kw">FROM</span> tejdeep
-<span class="kw">WHERE</span> status = <span class="str">'open to work'</span>;</pre>
-        <table>
-          <tr><td>Looking for</td><td>Data / QA / IT roles</td></tr>
-          <tr><td>Graduating</td><td>2027</td></tr>
-          <tr><td>Based in</td><td>Guntur, AP</td></tr>
-          <tr><td>Open to</td><td>Hyd, Blr, Chennai, remote</td></tr>
-        </table>
-      </div>
-    </div>
+    </nav>
+    <a class="btn btn-ghost btn-sm nav-cta magnetic" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
   </header>
 
-  <main>
-    <section id="about" class="section">
-      <div class="container narrow">
-        <h2 class="section-title">About me</h2>
-        <p>
-          I'm a final-year B.Tech student in Computer Science and Engineering (Data Science) at
-          R.V.R. &amp; J.C. College of Engineering, Guntur, Andhra Pradesh. Most of my projects start with a question,
-          like "which customers are about to stop buying?" or "does rainfall really decide crop yield in AP?",
-          and end with a chart or a model that answers it.
-        </p>
-        <p>
-          Outside data work I've built full stack apps with React, Flask and MongoDB, including a pothole detection
-          system with YOLOv8 as a team project. I'm open to roles in Hyderabad, Bangalore, Chennai or remote.
-        </p>
-        <div class="facts">
-          <div><strong>7.94</strong><span>CGPA</span></div>
-          <div><strong>5</strong><span>Projects</span></div>
-          <div><strong>4</strong><span>Certifications</span></div>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner wrap">
+        <div class="hero-text">
+          <p class="eyebrow hero-in" style="--d:0">B.Tech CSE (Data Science) · Class of 2027</p>
+          <h1 class="hero-in" style="--d:1">Tejdeep <em>Kellampalli</em></h1>
+          <p class="pitch hero-in" style="--d:2">I build real-time data projects, from live dashboards to models that run in the browser, and turn messy data into answers people can act on.</p>
+          <p class="roles hero-in" style="--d:3">Looking for <span>Data Analyst</span>, <span>QA</span> and <span>IT</span> roles · Hyderabad, Bengaluru, Chennai or remote</p>
+          <div class="cta hero-in" style="--d:4">
+            <a class="btn btn-gold magnetic" href="#projects">View projects</a>
+            <a class="btn btn-ghost magnetic" href="/resume.pdf" target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" /></svg>
+              Resume
+            </a>
+            <a class="link-under" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <figure class="portrait hero-in" style="--d:2">
+          <div class="portrait-frame tilt" data-tilt-max="6">
+            <picture class="tilt-inner">
+              <source type="image/webp" srcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" sizes="(max-width: 760px) 70vw, 360px" />
+              <img src="/img/tejdeep-720.jpg" srcset="/img/tejdeep-400.jpg 400w, /img/tejdeep-720.jpg 720w" sizes="(max-width: 760px) 70vw, 360px" width="720" height="900" alt="Portrait of Tejdeep Kellampalli" fetchpriority="high" />
+            </picture>
+          </div>
+          <span class="chip chip-a"><b>7.94</b> CGPA</span>
+          <span class="chip chip-b"><i class="dot"></i> Open to work</span>
+        </figure>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2>Curious about data, <em>careful with numbers.</em></h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>I'm a final-year B.Tech student in Computer Science and Engineering (Data Science) at R.V.R. &amp; J.C. College of Engineering, Guntur, Andhra Pradesh.</p>
+          <p>Most of my projects start with a simple question, like "which potholes are on my route?" or "will the air in my city get worse tomorrow?", and end with something live that answers it: a dashboard, a model or a small web app. I like SQL and Python the most, and I care about checking the numbers before I show them.</p>
+        </div>
+        <ul class="stats reveal" aria-label="Quick numbers">
+          <li><b class="count" data-to="7">7</b><span>live projects</span></li>
+          <li><b class="count" data-to="1.07" data-dec="2" data-suffix="M">1.07M</b><span>rows cleaned in SQL</span></li>
+          <li><b class="count" data-to="4">4</b><span>certifications</span></li>
+          <li><b class="count" data-to="7.94" data-dec="2">7.94</b><span>CGPA</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>Tools I <em>actually use</em></h2>
+        </div>
+        <div class="skill-grid">
+          <div class="skill-card reveal"><h3>Languages</h3><ul><li>Python</li><li>SQL</li><li>C</li><li>JavaScript (basics)</li></ul></div>
+          <div class="skill-card reveal"><h3>Data &amp; ML</h3><ul><li>pandas</li><li>NumPy</li><li>scikit-learn</li><li>Matplotlib</li><li>Seaborn</li><li>EDA</li></ul></div>
+          <div class="skill-card reveal"><h3>BI &amp; Tools</h3><ul><li>Power BI</li><li>Excel</li><li>Jupyter Notebook</li><li>Git</li><li>GitHub</li></ul></div>
+          <div class="skill-card reveal"><h3>Web &amp; Databases</h3><ul><li>HTML</li><li>CSS</li><li>React.js (basics)</li><li>Flask</li><li>MongoDB</li><li>SQLite</li></ul></div>
+        </div>
+        <p class="skill-note reveal">Core: data structures, machine learning, data analysis.</p>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Featured work</p>
+          <h2>Real-time projects, <em>live and open source</em></h2>
+        </div>
+        <div class="features">
+          <!-- @featured -->
+        </div>
+
+        <div class="section-head sub reveal">
+          <h2 class="h3">More projects</h2>
+        </div>
+        <div class="minis">
+          <!-- @others -->
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section alt">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-box">
-            <h3>Languages</h3>
-            <div class="chips"><span>Python</span><span>SQL</span><span>C</span><span>JavaScript (basics)</span></div>
+    <section class="section education" id="education">
+      <div class="wrap edu-grid">
+        <div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Education</p>
+            <h2>Where I <em>studied</em></h2>
           </div>
-          <div class="skill-box">
-            <h3>Data &amp; ML</h3>
-            <div class="chips"><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Machine Learning</span><span>Data Analysis</span></div>
-          </div>
-          <div class="skill-box">
-            <h3>BI &amp; Tools</h3>
-            <div class="chips"><span>Power BI</span><span>Excel</span><span>Jupyter Notebook</span><span>Git</span><span>GitHub</span></div>
-          </div>
-          <div class="skill-box">
-            <h3>Web &amp; Databases</h3>
-            <div class="chips"><span>HTML</span><span>CSS</span><span>React.js (basics)</span><span>Flask</span><span>MongoDB</span><span>SQLite</span></div>
-          </div>
+          <ol class="timeline">
+            <li class="reveal"><span class="when">2023 – 2027</span><h3>B.Tech, Computer Science and Engineering (Data Science)</h3><p>R.V.R. &amp; J.C. College of Engineering, Guntur · CGPA 7.94 / 10</p></li>
+            <li class="reveal"><span class="when">2021 – 2022</span><h3>Intermediate (MPC)</h3><p>Sri Chaitanya Junior College · 79.5%</p></li>
+            <li class="reveal"><span class="when">2020 – 2021</span><h3>SSC</h3><p>Sri Chaitanya School · 100%</p></li>
+          </ol>
         </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-        <article class="project">
-          <p class="project-tag">SQL · Python · Dashboard</p>
-          <h3>Retail Sales Analytics</h3>
-          <p>Cleaned 1M+ transactions of a UK online retailer into a SQLite database and answered business questions in SQL (window functions, RFM segmentation, cohort retention). Built a Power BI style dashboard with KPI cards and slicers.</p>
-          <ul class="highlights">
-            <li>Top 20% of customers bring 77% of revenue</li>
-            <li>Found 829 "at risk" customers worth £1.5M</li>
-          </ul>
-          <div class="stack"><span>SQL</span><span>SQLite</span><span>Python</span><span>pandas</span><span>Plotly</span></div>
-          <div class="links">
-            <a href="https://tejdeep-67.github.io/retail-sales-analytics/" target="_blank" rel="noopener" class="primary">Live demo</a>
-            <a href="https://github.com/Tejdeep-67/retail-sales-analytics" target="_blank" rel="noopener">Code</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-tag">EDA · Python</p>
-          <h3>AP Rainfall & Crop Analysis</h3>
-          <p>Exploratory analysis of 117 years of IMD rainfall and district crop production data for Andhra Pradesh. Checked trends, drought years and whether rainfall really changes crop yield.</p>
-          <ul class="highlights">
-            <li>Rain-fed groundnut yield tracks the monsoon (r = 0.77)</li>
-            <li>Canal-irrigated rice shows no link (r = -0.27)</li>
-          </ul>
-          <div class="stack"><span>Python</span><span>pandas</span><span>matplotlib</span><span>seaborn</span><span>SciPy</span></div>
-          <div class="links">
-            <a href="https://tejdeep-67.github.io/ap-rainfall-crop-analysis/" target="_blank" rel="noopener" class="primary">Live demo</a>
-            <a href="https://github.com/Tejdeep-67/ap-rainfall-crop-analysis" target="_blank" rel="noopener">Code</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-tag">Machine Learning</p>
-          <h3>Customer Churn Prediction</h3>
-          <p>End-to-end churn model on 7,043 telecom customers: EDA, comparison of 4 models, a Flask API with tests, and a web demo where the model runs in the browser.</p>
-          <ul class="highlights">
-            <li>ROC-AUC 0.84, catches 78% of churners</li>
-            <li>Top 20% risk list reaches half of all churners</li>
-          </ul>
-          <div class="stack"><span>scikit-learn</span><span>Flask</span><span>pytest</span><span>JavaScript</span></div>
-          <div class="links">
-            <a href="https://tejdeep-67.github.io/customer-churn-prediction/" target="_blank" rel="noopener" class="primary">Live demo</a>
-            <a href="https://github.com/Tejdeep-67/customer-churn-prediction" target="_blank" rel="noopener">Code</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-tag">Computer Vision · Full Stack</p>
-          <h3>Safe Roads</h3>
-          <p>Team project: pothole detection from road photos with a YOLOv8 segmentation model, and navigation that only warns about potholes within 30 m of your route.</p>
-          <ul class="highlights">
-            <li>Model validation mAP@50 0.68 (boxes)</li>
-            <li>GPS from photo EXIF + OSRM routing</li>
-          </ul>
-          <div class="stack"><span>YOLOv8</span><span>Flask</span><span>MongoDB</span><span>React</span><span>Leaflet</span></div>
-          <div class="links">
-            <a href="https://github.com/Tejdeep-67/project-bolt-sb1-gt5grsbh" target="_blank" rel="noopener">Code</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <p class="project-tag">Data Tool · Web</p>
-          <h3>Stalytex</h3>
-          <p>Browser-based analytics workspace: upload a CSV or Excel file, clean and edit it, view column statistics, build charts and run SQL on it. No backend needed.</p>
-          <ul class="highlights">
-            <li>In-browser SQL with sql.js</li>
-            <li>Charts exported as PNG, data as CSV/XLSX</li>
-          </ul>
-          <div class="stack"><span>React</span><span>TypeScript</span><span>Recharts</span><span>SheetJS</span><span>sql.js</span></div>
-          <div class="links">
-            <a href="https://github.com/Tejdeep-67/Stalytex" target="_blank" rel="noopener">Code</a>
-          </div>
-        </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section alt">
-      <div class="container">
-        <h2 class="section-title">Education &amp; Certifications</h2>
-        <div class="two-col">
-          <div class="timeline">
-            <div class="item">
-              <span class="when">2023 &ndash; 2027</span>
-              <h3>B.Tech, Computer Science and Engineering (Data Science)</h3>
-              <p>R.V.R. &amp; J.C. College of Engineering, Guntur &middot; CGPA 7.94/10</p>
-            </div>
-            <div class="item">
-              <span class="when">2021 &ndash; 2022</span>
-              <h3>Intermediate (MPC)</h3>
-              <p>Sri Chaitanya Junior College &middot; 79.5%</p>
-            </div>
-            <div class="item">
-              <span class="when">2020 &ndash; 2021</span>
-              <h3>SSC</h3>
-              <p>Sri Chaitanya School &middot; 100%</p>
-            </div>
+        <div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Certifications</p>
+            <h2>Courses &amp; <em>internships</em></h2>
           </div>
           <ul class="certs">
-            <li><strong>Certified Data Science Professional</strong><span>Oracle</span></li>
-            <li><strong>Certified Gen AI Professional</strong><span>Oracle</span></li>
-            <li><strong>AICTE Google AI-ML Virtual Internship</strong><span>EduSkills</span></li>
-            <li><strong>AICTE Microsoft Foundations of AI Virtual Internship</strong><span>Edunet Foundation</span></li>
+            <li class="reveal"><b>Certified Data Science Professional</b><span>Oracle</span></li>
+            <li class="reveal"><b>Certified Generative AI Professional</b><span>Oracle</span></li>
+            <li class="reveal"><b>AICTE Google AI-ML Virtual Internship</b><span>EduSkills</span></li>
+            <li class="reveal"><b>AICTE Microsoft Foundations of AI Virtual Internship</b><span>Edunet Foundation</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container narrow center">
-        <h2 class="section-title">Get in touch</h2>
-        <p>I'm looking for internships and full-time roles starting 2027. The fastest way to reach me is email.</p>
-        <a href="mailto:kellampallitejdeep@gmail.com" class="btn btn-primary">kellampallitejdeep@gmail.com</a>
-        <div class="socials center">
-          <a href="https://github.com/Tejdeep-67" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://in.linkedin.com/in/tejdeep-kellampalli-6510a8355" target="_blank" rel="noopener">LinkedIn</a>
+    <section class="section contact" id="contact">
+      <div class="wrap contact-inner reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="big">Let's build something <em>with data.</em></h2>
+        <p class="contact-sub">I'm open to internships and full-time roles for the 2027 batch. The quickest way to reach me is email.</p>
+        <div class="contact-mail">
+          <a class="mail magnetic" href="mailto:kellampallitejdeep@gmail.com">kellampallitejdeep@gmail.com</a>
+          <button class="copy" type="button" data-copy="kellampallitejdeep@gmail.com" aria-label="Copy email address">Copy</button>
         </div>
+        <ul class="socials">
+          <li><a class="btn btn-ghost magnetic" href="https://in.linkedin.com/in/tejdeep-kellampalli-6510a8355" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a class="btn btn-ghost magnetic" href="https://github.com/Tejdeep-67" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a class="btn btn-ghost magnetic" href="/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>&copy; <span id="year"></span> Tejdeep Kellampalli</p>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Tejdeep Kellampalli · Guntur, Andhra Pradesh</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
   </footer>
-
-  <script src="js/main.js"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
