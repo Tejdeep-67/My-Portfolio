@@ -143,7 +143,7 @@ export function startHero(container, { mobile = false } = {}) {
   const npos = new Float32Array(n * 3)
   const nr = new Float32Array(n)
   for (let k = 0; k < n; k++) {
-    npos[k * 3] = (Math.random() - 0.3) * 24
+    npos[k * 3] = 1 + Math.random() * 13 * (Math.random() < 0.8 ? 1 : -1.4)
     npos[k * 3 + 1] = 1.2 + Math.random() * 5
     npos[k * 3 + 2] = -4 - Math.random() * 12
     nr[k] = Math.random()
@@ -171,7 +171,7 @@ export function startHero(container, { mobile = false } = {}) {
   }
   const lgeo = new BufferGeometry()
   lgeo.setAttribute('position', new BufferAttribute(new Float32Array(segs), 3))
-  const lines = new LineSegments(lgeo, new LineBasicMaterial({ color: 0xd8b46a, transparent: true, opacity: 0.07, blending: AdditiveBlending, depthWrite: false }))
+  const lines = new LineSegments(lgeo, new LineBasicMaterial({ color: 0xd8b46a, transparent: true, opacity: mobile ? 0.05 : 0.08, blending: AdditiveBlending, depthWrite: false }))
   group.add(nodes, lines)
   scene.add(group)
 

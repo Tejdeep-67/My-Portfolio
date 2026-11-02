@@ -16,12 +16,15 @@ const art = {
       <linearGradient id="sr-road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2338"/><stop offset="1" stop-color="#262f45"/></linearGradient>
     </defs>
     <rect width="640" height="400" fill="url(#sr-sky)"/>
+    <path d="M0 122H640" stroke="#24304b"/>
     <path d="M300 120 L340 120 L640 400 L0 400 Z" fill="url(#sr-road)"/>
+    <path d="M300 120 L0 400M340 120 L640 400" stroke="#4a5677" stroke-width="2"/>
     <path d="M318 130v18M316 170v26M313 225v36M309 292v50M305 370v30" stroke="#d8b46a" stroke-width="4" stroke-linecap="round" opacity=".55"/>
     <ellipse cx="226" cy="318" rx="58" ry="16" fill="#0a0f1c" opacity=".85"/>
     <ellipse cx="402" cy="242" rx="34" ry="9" fill="#0a0f1c" opacity=".85"/>
     <g class="box b1"><rect x="160" y="290" width="132" height="56" rx="6" fill="none" stroke="#f0b44c" stroke-width="2.5"/><rect x="160" y="270" width="82" height="20" rx="4" fill="#f0b44c"/><text x="168" y="285" font-size="13" font-family="monospace" fill="#0a0f1c">pothole</text></g>
     <g class="box b2"><rect x="362" y="226" width="80" height="34" rx="5" fill="none" stroke="#ff7a59" stroke-width="2.5"/><rect x="362" y="208" width="58" height="18" rx="4" fill="#ff7a59"/><text x="368" y="221" font-size="12" font-family="monospace" fill="#0a0f1c">crack</text></g>
+    <g><rect x="24" y="24" width="64" height="24" rx="12" fill="#0e1526" stroke="#2a3552"/><circle cx="40" cy="36" r="4" fill="#ff5d5d"/><text x="50" y="41" font-size="12" font-family="monospace" fill="#c9d2e6">LIVE</text></g>
     <g opacity=".9"><rect x="470" y="28" width="146" height="92" rx="12" fill="#0e1526" stroke="#2a3552"/><path d="M486 96c18-26 36 8 56-18s36-6 58-34" stroke="#6f8bd6" stroke-width="2" fill="none"/><circle cx="542" cy="78" r="6" fill="#f0b44c"/><circle cx="584" cy="58" r="5" fill="#ff7a59"/><circle cx="512" cy="84" r="4" fill="#f0b44c"/></g>
   </svg>`,
   airpulse: `<svg viewBox="0 0 640 400" class="art" aria-hidden="true">
@@ -32,7 +35,7 @@ const art = {
     <circle class="ring" cx="200" cy="200" r="104" fill="none" stroke="url(#ap-arc)" stroke-width="18" stroke-linecap="round" stroke-dasharray="420 654" transform="rotate(-90 200 200)"/>
     <linearGradient id="ap-arc"><stop offset="0" stop-color="#5ad38b"/><stop offset=".5" stop-color="#f3d46b"/><stop offset="1" stop-color="#f08a4b"/></linearGradient>
     <text x="200" y="208" text-anchor="middle" font-size="54" font-family="Georgia, serif" fill="#e9ecf3">AQI</text>
-    <text x="200" y="240" text-anchor="middle" font-size="14" font-family="monospace" fill="#8fa0bf">PM2.5 · PM10 · NO2 · O3</text>
+    <text x="200" y="238" text-anchor="middle" font-size="13" font-family="monospace" fill="#8fa0bf">PM2.5 · NO2 · O3</text>
     <g transform="translate(380 70)"><rect width="230" height="260" rx="14" fill="#0f1a2e" stroke="#22304d"/>
       <path class="line" d="M20 200 C50 170 70 190 95 150 S140 120 160 140 S200 90 212 70" fill="none" stroke="#5eead4" stroke-width="3"/>
       <path d="M20 210 C50 190 70 200 95 175 S140 160 160 165 S200 130 212 120" fill="none" stroke="#d8b46a" stroke-width="2" stroke-dasharray="6 6"/>

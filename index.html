@@ -18,16 +18,8 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="preload" as="image" href="/img/tejdeep-400.webp" imagesrcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" imagesizes="(max-width: 860px) 230px, 360px" type="image/webp" />
-  <script>
-    // decide before first paint whether the intro plays (once per session)
-    try {
-      var seen = sessionStorage.getItem('intro-seen')
-      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches
-      if (!seen && !calm) document.documentElement.classList.add('intro-on')
-    } catch (e) {}
-    document.documentElement.classList.add('js')
-  </script>
+  <link rel="preload" as="image" href="/img/tejdeep-400.webp" imagesrcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" imagesizes="(max-width: 860px) 210px, 360px" type="image/webp" />
+  <script src="/boot.js"></script>
   <script type="module" src="/src/main.js"></script>
 </head>
 <body>
@@ -78,8 +70,8 @@
         <figure class="portrait hero-in" style="--d:2">
           <div class="portrait-frame tilt" data-tilt-max="6">
             <picture class="tilt-inner">
-              <source type="image/webp" srcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" sizes="(max-width: 860px) 230px, 360px" />
-              <img src="/img/tejdeep-720.jpg" srcset="/img/tejdeep-400.jpg 400w, /img/tejdeep-720.jpg 720w" sizes="(max-width: 860px) 230px, 360px" width="720" height="900" alt="Portrait of Tejdeep Kellampalli" fetchpriority="high" />
+              <source type="image/webp" srcset="/img/tejdeep-400.webp 400w, /img/tejdeep-720.webp 720w" sizes="(max-width: 860px) 210px, 360px" />
+              <img src="/img/tejdeep-720.jpg" srcset="/img/tejdeep-400.jpg 400w, /img/tejdeep-720.jpg 720w" sizes="(max-width: 860px) 210px, 360px" width="720" height="900" alt="Portrait of Tejdeep Kellampalli" fetchpriority="high" />
             </picture>
           </div>
           <span class="chip chip-a"><b>7.94</b> CGPA</span>
