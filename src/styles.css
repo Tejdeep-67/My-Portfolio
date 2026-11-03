@@ -144,8 +144,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: rgba(13, 20, 36, 0.78); border: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7); animation: float 6s ease-in-out infinite;
 }
-.chip b { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: var(--gold-2); line-height: 1; }
-.chip-a { left: -38px; bottom: 70px; }
 .chip-b { right: -26px; top: 46px; animation-delay: -3s; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); animation: ping 2.2s infinite; }
 @keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
@@ -346,7 +344,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .nav-links a { font-family: var(--serif); font-size: 2.2rem; color: var(--ink); }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-block: 104px 96px; text-align: left; }
   .portrait { width: min(210px, 56%); order: -1; justify-self: start; margin-left: 14px; }
-  .chip-a { left: calc(100% + 12px); right: auto; bottom: 30px; }
   .chip-b { left: calc(100% + 12px); right: auto; top: 30px; }
   .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 40px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -361,7 +358,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .chip { font-size: 0.78rem; padding: 8px 12px; }
   .eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; }
   .hero .eyebrow::before { display: none; }
-  .chip b { font-size: 1.15rem; }
   .logo { height: 50px; }
   .section-head { margin-bottom: 36px; }
   .footer-inner { flex-direction: column; }
