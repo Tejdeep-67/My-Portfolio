@@ -58,6 +58,9 @@ test('local files referenced by the page exist', () => {
   }
   assert.ok(existsSync(join(dist, '404.html')))
   assert.ok(existsSync(join(dist, 'og.png')))
+  for (const f of ['favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest']) {
+    assert.ok(existsSync(join(dist, f)), `missing ${f}`)
+  }
 })
 
 test('contact links: email, linkedin, github, resume', () => {
