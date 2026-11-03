@@ -2,7 +2,7 @@
 
 My personal website: who I am, the projects I've built, skills, education and how to reach me.
 
-**Live:** https://tejdeep-portfolio.netlify.app
+**Live:** https://tejdeepkellampalli.netlify.app
 
 ![portfolio home](docs/home.jpg)
 

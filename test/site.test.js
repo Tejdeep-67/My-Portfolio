@@ -16,7 +16,8 @@ test('page has title, description, viewport and og tags', () => {
   assert.match(html, /<title>Tejdeep Kellampalli[^<]*<\/title>/)
   assert.match(html, /<meta name="viewport" content="width=device-width, initial-scale=1"/)
   assert.match(html, /<meta name="description" content="[^"]{60,}"/)
-  assert.match(html, /property="og:image" content="https:\/\/tejdeep-portfolio\.netlify\.app\/og\.png"/)
+  assert.match(html, /<link rel="canonical" href="https:\/\/tejdeepkellampalli\.netlify\.app\/"/)
+  assert.match(html, /property="og:image" content="https:\/\/tejdeepkellampalli\.netlify\.app\/og\.png"/)
 })
 
 test('every project from projects.json is on the page with its live and code links', () => {
@@ -26,6 +27,11 @@ test('every project from projects.json is on the page with its live and code lin
     assert.ok(html.includes(`href="${p.code}"`), `missing code link for ${p.name}`)
     assert.match(p.live, /^https:\/\/[a-z0-9-]+\.netlify\.app$/)
   }
+})
+
+test('the page does not call him an analyst (he is a student)', () => {
+  const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/Retail Sales Analytics|retail-analytics|analytics/gi, '')
+  assert.doesNotMatch(text, /analyst/i)
 })
 
 test('featured projects keep their order: Safe Roads, AirPulse, NiftyLens', () => {
