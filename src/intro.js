@@ -39,7 +39,7 @@ export function runIntro(onReveal) {
     onReveal()
     const anim = box.animate(
       [{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${dx}px, ${dy}px) scale(${scale})` }],
-      { duration: fast ? 600 : 850, easing: 'cubic-bezier(0.7, 0, 0.2, 1)', fill: 'forwards' }
+      { duration: fast ? 600 : 750, easing: 'cubic-bezier(0.7, 0, 0.2, 1)', fill: 'forwards' }
     )
     anim.onfinish = finish
     // safety net in case the animation never reports back (background tab etc.)
@@ -58,5 +58,5 @@ export function runIntro(onReveal) {
   window.addEventListener('wheel', skip, { passive: true })
   window.addEventListener('touchmove', skip, { passive: true })
 
-  const timer = setTimeout(() => settle(false), total + 250)
+  const timer = setTimeout(() => settle(false), total + 200)
 }

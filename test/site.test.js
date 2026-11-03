@@ -36,7 +36,10 @@ test('featured projects keep their order: Safe Roads, AirPulse, NiftyLens', () =
 
 test('signature intro and logo are rendered into the html', () => {
   assert.match(html, /class="sig sig-anim"[^>]*data-total="\d+"/)
-  assert.ok((html.match(/<use href="#sig-ink"/g) || []).length >= 2)
+  // both lines of the signature (Tejdeep, Kellampalli) in the intro and the nav logo
+  assert.ok((html.match(/<use href="#sig-ink-1"/g) || []).length >= 2)
+  assert.ok((html.match(/<use href="#sig-ink-2"/g) || []).length >= 2)
+  assert.match(html, /class="sig sig-anim"[^>]*aria-label="Tejdeep Kellampalli"/)
   assert.ok(!html.includes('<!-- @'), 'a build placeholder was left in the page')
 })
 

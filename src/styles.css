@@ -89,9 +89,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled { background: rgba(10, 15, 28, 0.72); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); padding-block: 10px; border-color: var(--line); }
-.logo { display: block; height: 48px; margin-right: auto; color: var(--gold-2); }
+.logo { display: block; height: 58px; margin-right: auto; color: var(--gold-2); }
 .logo-sig { display: block; height: 100%; }
-.logo-sig svg { display: block; height: 100%; width: auto; aspect-ratio: 996 / 522; }
+.logo-sig svg { display: block; height: 100%; width: auto; aspect-ratio: 1441 / 805; }
 .nav-links { display: flex; gap: 26px; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.92rem; font-weight: 500; position: relative; padding: 6px 0; transition: color 0.3s; }
 .nav-links a::after { content: ''; position: absolute; left: 50%; right: 50%; bottom: 0; height: 1px; background: var(--gold); transition: left 0.35s var(--ease), right 0.35s var(--ease); }
@@ -300,23 +300,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: radial-gradient(50% 40% at 50% 48%, rgba(216, 180, 106, 0.08), transparent 70%), var(--bg);
   transition: opacity 0.8s ease;
 }
-.intro-sig { width: min(560px, 80vw); transform-origin: 0 0; will-change: transform; }
+.intro-sig { width: min(600px, 84vw); transform-origin: 0 0; will-change: transform; }
 .intro-sig svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 0 18px rgba(216, 180, 106, 0.25)); }
 .sig-anim .pen path { stroke-dasharray: 1 2; stroke-dashoffset: 1; animation: sig-write var(--d) var(--t) cubic-bezier(0.45, 0.05, 0.4, 0.95) forwards; }
 @keyframes sig-write { to { stroke-dashoffset: 0; } }
 .intro.skip .pen path { animation: none; stroke-dashoffset: 0; }
-.intro-sub {
-  margin: 0; font-size: 0.8rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted);
-  opacity: 0; transform: translateY(8px); animation: sub-in 0.9s var(--ease) 0.9s forwards; transition: opacity 0.4s;
-}
-.intro-sub span { color: var(--gold); }
-@keyframes sub-in { to { opacity: 1; transform: none; } }
 .intro-skip {
   position: absolute; right: 22px; bottom: 22px; font: 600 0.78rem var(--sans); letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; cursor: pointer; transition: color 0.3s, border-color 0.3s, opacity 0.4s;
 }
 .intro-skip:hover { color: var(--ink); border-color: var(--gold); }
-.intro.leaving::before, .intro.leaving .intro-sub, .intro.leaving .intro-skip { opacity: 0; }
+.intro.leaving::before, .intro.leaving .intro-skip { opacity: 0; }
 .intro.leaving .intro-sig svg { filter: none; }
 .intro-on .logo-sig { opacity: 0; }
 .logo-sig { transition: opacity 0.3s; }
@@ -326,7 +320,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .nf-main { width: min(640px, calc(100% - 40px)); text-align: center; padding: 60px 0; }
 .nf-logo { display: flex; width: fit-content; color: var(--gold-2); margin: 0 auto 36px; }
 .nf .eyebrow { display: flex; justify-content: center; }
-.nf-logo .logo-sig, .nf-logo svg { display: block; height: 70px; width: 134px; }
+.nf-logo .logo-sig, .nf-logo svg { display: block; height: 84px; width: 150px; }
 .nf h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); margin-bottom: 18px; }
 .nf-copy { color: var(--muted); margin-bottom: 30px; }
 .nf .cta { justify-content: center; margin-top: 0; }
@@ -370,7 +364,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; }
   .hero .eyebrow::before { display: none; }
   .chip b { font-size: 1.15rem; }
-  .logo { height: 42px; }
+  .logo { height: 50px; }
   .section-head { margin-bottom: 36px; }
   .footer-inner { flex-direction: column; }
 }

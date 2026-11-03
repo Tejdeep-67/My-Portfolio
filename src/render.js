@@ -107,56 +107,86 @@ export function renderProjects(data) {
 }
 
 // ---------- signature ----------
-// The signature json comes from tools/signature (font outline + traced pen strokes).
-// The outline is the visible ink; the pen strokes are drawn into a mask with
-// stroke-dashoffset, so the ink appears in writing order.
+// The signature json comes from tools/signature (font outlines + traced pen strokes).
+// Two lines: "Tejdeep" and "Kellampalli" under it. The outline is the visible ink;
+// the pen strokes are drawn into a mask with stroke-dashoffset, so the ink appears
+// in writing order, first name first, then the surname, then the underline.
 
-const WRITE_MS = 1400 // time spent writing the letters
-const LIFT_MS = 55 // pen lift between strokes
+const WRITE_MS = 1650 // time spent writing the letters of both words
+const LIFT_MS = 50 // pen lifted and moved to a new spot
+const LINE_GAP_MS = 120 // small pause before starting the second line
+const SWOOSH_MS = 380
 
-function strokeTimings(strokes) {
-  const w = strokes.map((s) => Math.pow(s.len, 0.8))
-  const sum = w.reduce((a, b) => a + b, 0)
-  let t = 80
-  return strokes.map((s, i) => {
-    const small = s.len < 30 // the dot of the j: small pause, quick tap
-    if (small) t += 90
-    const dur = small ? 110 : Math.max(90, Math.round((WRITE_MS * w[i]) / sum))
-    const out = { delay: t, dur }
-    t += dur + LIFT_MS
-    return out
-  })
+const ends = (d) => {
+  const n = d.match(/-?\d+(\.\d+)?/g).map(Number)
+  return { start: [n[0], n[1]], end: [n[n.length - 2], n[n.length - 1]] }
 }
 
+export function strokeTimings(lines) {
+  const all = lines.flatMap((l) => l.strokes)
+  const k = WRITE_MS / all.reduce((a, s) => a + Math.pow(s.len, 0.8), 0)
+  let t = 80
+  const out = lines.map((line, li) => {
+    if (li > 0) t += LINE_GAP_MS
+    let prev = null
+    return line.strokes.map((s) => {
+      const small = s.len < 30 // dots: small pause, quick tap
+      const { start, end } = ends(s.d)
+      // strokes that continue where the last one stopped are one movement of the pen
+      if (prev) t += Math.hypot(start[0] - prev[0], start[1] - prev[1]) > 45 ? LIFT_MS : 0
+      if (small) t += 90
+      const dur = small ? 110 : Math.max(60, Math.round(k * Math.pow(s.len, 0.8)))
+      const r = { delay: t, dur }
+      t += dur
+      prev = end
+      return r
+    })
+  })
+  return { lines: out, swoosh: { delay: t - 40, dur: SWOOSH_MS }, total: t - 40 + SWOOSH_MS }
+}
+
+const vb = (sig) => sig.viewBox.join(' ')
+
 export function signatureDefs(sig) {
+  const [x, y, w, h] = sig.viewBox
+  const ink = sig.lines
+    .map((l, i) => `<path id="sig-ink-${i + 1}" d="${l.outline}"${l.grow ? ` stroke-width="${l.grow}"` : ''}/>`)
+    .join('\n')
   return `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-<linearGradient id="sig-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e5bd"/><stop offset=".5" stop-color="#e2c27f"/><stop offset="1" stop-color="#bf9550"/></linearGradient>
-<path id="sig-ink" d="${sig.outline}"/>
+<linearGradient id="sig-gold" gradientUnits="userSpaceOnUse" x1="${x}" y1="${y}" x2="${x + w}" y2="${y + h}"><stop offset="0" stop-color="#f6e5bd"/><stop offset=".5" stop-color="#e2c27f"/><stop offset="1" stop-color="#bf9550"/></linearGradient>
+${ink}
 <path id="sig-swoosh" d="${sig.flourish.shape}"/>
 </defs></svg>`
 }
 
 export function signatureIntro(sig) {
   const [x, y, w, h] = sig.viewBox
-  const times = strokeTimings(sig.strokes)
-  const last = times[times.length - 1]
-  const fStart = last.delay + last.dur - 40
-  const fDur = 360
-  const total = fStart + fDur
-  const paths = sig.strokes
-    .map((s, i) => `<path d="${s.d}" pathLength="1" style="--t:${times[i].delay}ms;--d:${times[i].dur}ms"/>`)
+  const tm = strokeTimings(sig.lines)
+  const box = `maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"`
+  const masks = sig.lines
+    .map((line, li) => {
+      const paths = line.strokes
+        .map((s, i) => `<path d="${s.d}" pathLength="1" style="--t:${tm.lines[li][i].delay}ms;--d:${tm.lines[li][i].dur}ms"/>`)
+        .join('')
+      return `<mask id="sig-write-${li + 1}" ${box}><g class="pen" fill="none" stroke="#fff" stroke-width="${line.pen}" stroke-linecap="round" stroke-linejoin="round">${paths}</g></mask>`
+    })
+    .join('\n')
+  const uses = sig.lines
+    .map((l, i) => `<use href="#sig-ink-${i + 1}" fill="url(#sig-gold)"${l.grow ? ' stroke="url(#sig-gold)"' : ''} mask="url(#sig-write-${i + 1})"/>`)
     .join('')
-  return `<svg class="sig sig-anim" viewBox="${x} ${y} ${w} ${h}" data-total="${total}" role="img" aria-label="Tejdeep">
+  return `<svg class="sig sig-anim" viewBox="${vb(sig)}" data-total="${tm.total}" role="img" aria-label="Tejdeep Kellampalli">
 <defs>
-<mask id="sig-write" maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"><g class="pen" fill="none" stroke="#fff" stroke-width="${sig.pen}" stroke-linecap="round" stroke-linejoin="round">${paths}</g></mask>
-<mask id="sig-write-2" maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"><g class="pen" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"><path d="${sig.flourish.center}" pathLength="1" style="--t:${fStart}ms;--d:${fDur}ms"/></g></mask>
+${masks}
+<mask id="sig-write-swoosh" ${box}><g class="pen" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"><path d="${sig.flourish.center}" pathLength="1" style="--t:${tm.swoosh.delay}ms;--d:${tm.swoosh.dur}ms"/></g></mask>
 </defs>
-<use href="#sig-ink" fill="url(#sig-gold)" mask="url(#sig-write)"/>
-<use href="#sig-swoosh" fill="url(#sig-gold)" mask="url(#sig-write-2)"/>
+${uses}
+<use href="#sig-swoosh" fill="url(#sig-gold)" mask="url(#sig-write-swoosh)"/>
 </svg>`
 }
 
 export function signatureLogo(sig) {
-  const [x, y, w, h] = sig.viewBox
-  return `<svg class="sig" viewBox="${x} ${y} ${w} ${h}" aria-hidden="true" focusable="false"><use href="#sig-ink" fill="currentColor"/><use href="#sig-swoosh" fill="currentColor"/></svg>`
+  const uses = sig.lines
+    .map((l, i) => `<use href="#sig-ink-${i + 1}" fill="currentColor"${l.grow ? ' stroke="currentColor"' : ''}/>`)
+    .join('')
+  return `<svg class="sig" viewBox="${vb(sig)}" aria-hidden="true" focusable="false">${uses}<use href="#sig-swoosh" fill="currentColor"/></svg>`
 }
