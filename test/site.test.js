@@ -29,6 +29,15 @@ test('every project from projects.json is on the page with its live and code lin
   }
 })
 
+test('android app links point at the github release apk', () => {
+  const withApp = projects.featured.filter((p) => p.app)
+  assert.deepEqual(withApp.map((p) => p.slug), ['safe-roads', 'airpulse'])
+  for (const p of withApp) {
+    assert.match(p.app.android, /^https:\/\/github\.com\/Tejdeep-67\/[\w-]+\/releases\/latest\/download\/[\w-]+\.apk$/)
+    assert.ok(html.includes(`href="${p.app.android}"`), `missing android link for ${p.name}`)
+  }
+})
+
 test('the page does not call him an analyst (he is a student)', () => {
   const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/Retail Sales Analytics|retail-analytics|analytics/gi, '')
   assert.doesNotMatch(text, /analyst/i)

@@ -370,3 +370,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .js .feature.reveal .feature-visual { clip-path: none; }
   .tilt { transform: none !important; }
 }
+
+/* apk size next to the Android app button */
+.btn .size { font-size: 0.72rem; opacity: 0.65; font-weight: 500; }

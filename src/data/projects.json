@@ -21,7 +21,11 @@
       "live": "https://thesaferoads.netlify.app",
       "code": "https://github.com/Tejdeep-67/safe-roads",
       "image": "/img/projects/safe-roads.webp",
-      "note": "Started as a team project"
+      "note": "Started as a team project",
+      "app": {
+        "android": "https://github.com/Tejdeep-67/safe-roads/releases/latest/download/safe-roads.apk",
+        "size": "3.6 MB"
+      }
     },
     {
       "slug": "airpulse",
@@ -43,7 +47,11 @@
       ],
       "live": "https://airpulse-india.netlify.app",
       "code": "https://github.com/Tejdeep-67/airpulse-india",
-      "image": "/img/projects/airpulse.webp"
+      "image": "/img/projects/airpulse.webp",
+      "app": {
+        "android": "https://github.com/Tejdeep-67/airpulse-india/releases/latest/download/airpulse.apk",
+        "size": "4.1 MB"
+      }
     },
     {
       "slug": "niftylens",
