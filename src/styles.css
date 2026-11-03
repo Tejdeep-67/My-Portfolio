@@ -125,8 +125,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero h1 { font-size: clamp(3.2rem, 8.2vw, 6.6rem); line-height: 0.95; margin-bottom: 26px; }
 .hero h1 em { display: inline-block; background: var(--grad-gold); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.06em; }
 .pitch { font-size: clamp(1.08rem, 1.6vw, 1.25rem); color: #cdd3e1; max-width: 36em; }
-.roles { color: var(--muted); font-size: 0.95rem; }
-.roles span { color: var(--ink); font-weight: 600; }
 .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 34px; }
 
 .portrait { position: relative; margin: 0; justify-self: center; width: min(360px, 100%); }
