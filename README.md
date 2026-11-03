@@ -47,3 +47,7 @@ Hosted on Netlify. `netlify.toml` has the settings: build command `npm ci && npm
 - Signature letters based on the font Mrs Saint Delafield by Alejandro Paul (SIL Open Font License, see `tools/signature/OFL.txt`)
 - Instrument Serif and Manrope fonts (SIL Open Font License)
 - Three.js (MIT)
+
+## License
+
+MIT for the code, see [LICENSE](LICENSE). The photo and resume are mine, please don't reuse them. Fonts keep their own licences (listed above).
